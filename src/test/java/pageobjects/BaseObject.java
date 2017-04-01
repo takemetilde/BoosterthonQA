@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BaseObject{
 
 	// Create instance of Selenium webdriver
-	private WebDriver driver;
+	private WebDriver driver; 
 
 	// Constructor for Base class declaring driver
 	public BaseObject(WebDriver driver) {
