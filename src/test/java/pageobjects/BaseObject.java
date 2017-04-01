@@ -1,6 +1,7 @@
 package pageobjects;
 
-import org.openqa.selenium.By;   
+import org.openqa.selenium.By;    
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -68,8 +69,11 @@ public class BaseObject implements Config{
 	
 	// Method to explicit wait 
 	public void waitFor(By locator){
-		WebDriverWait waitFor = new WebDriverWait(driver, 10);
-		waitFor.until(ExpectedConditions.presenceOfElementLocated(locator));
+		try {
+			WebDriverWait waitFor = new WebDriverWait(driver, 10);
+			waitFor.until(ExpectedConditions.presenceOfElementLocated(locator));
+		} catch (TimeoutException exception) {
+		}
 	}
 
 }

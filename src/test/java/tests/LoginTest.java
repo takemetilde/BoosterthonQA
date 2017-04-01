@@ -16,8 +16,12 @@ public class LoginTest extends BaseTest{
 	}
 	
 	@Test
-	public void login(){
-		// Call login method
-		loginTest.logIn();
+	public void loginSuccessful(){
+		loginTest.login(validEmail, validPassword);
+	}
+	
+	@Test
+	public void loginUnsuccessful(){
+		loginTest.login(invalidEmail, invalidPassword);
 	}
 }

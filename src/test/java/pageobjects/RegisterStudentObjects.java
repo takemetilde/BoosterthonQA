@@ -7,12 +7,12 @@ public class RegisterStudentObjects extends BaseObject{
 
 	By registerButtonLocator = By.linkText("Register a Student");
     By schoolSearchLocator = By.id("query");
-    By schoolSelectLocator = By.cssSelector("div.search-result-program");
+    By schoolSelectLocator = By.cssSelector("div[registration_code='316649']");
     By firstNameLocator = By.name("first_name");
     By lastNameLocator = By.name("last_name");
     By genderLocator = By.id("gender");
     By classroomLocator = By.name("classroom_id");
-    By checkboxLocator = By.id("waiver-check-box");
+    By checkboxLocator = By.className("unselectable");
     By acceptButtonLocator = By.id("ButtonAcceptTerms");
     
     public RegisterStudentObjects(WebDriver driver) {
