@@ -5,9 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BaseObject{
+import tests.Config;
+
+public class BaseObject implements Config{
 
 	// Create instance of Selenium webdriver
 	private WebDriver driver; 
@@ -33,7 +36,7 @@ public class BaseObject{
 	}
 
 	// Method to type
-	public void type(String inputText, By locator) {
+	public void type(By locator, String inputText) {
 		find(locator).sendKeys(inputText);
 	}
 
@@ -46,6 +49,12 @@ public class BaseObject{
 	public Actions hover(By locator) {
 		Actions hover = new Actions(driver);
 		return hover.moveToElement(find(locator));
+	}
+	
+	// Method to select from list
+	public void select(By locator, String input) {
+		Select select = new Select(find(locator));
+		select.selectByVisibleText(input);
 	}
 
 	// Method to find and display locator
