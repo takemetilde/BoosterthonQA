@@ -1,5 +1,7 @@
 package tests;
 
+import static org.junit.Assert.assertFalse;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,10 +20,10 @@ public class RegisterStudentTest extends BaseTest {
 	}
 
 	@Test
-	public void registerStudent(){
+	public void TC_0140_registerStudentSuccess(){
 		loginTest.login(validEmail, validPassword);
 		registerTest.registerStudent();
 		// Assertion of registering
-		
+		assertFalse("Form error", registerTest.isDisplayed(registerTest.duplicateError));
 	}
 }

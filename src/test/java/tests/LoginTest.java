@@ -1,8 +1,9 @@
 package tests;
 
+import static org.junit.Assert.assertFalse; 
+
 import org.junit.Before;
 import org.junit.Test;
-
 import pageobjects.LoginObjects;
 
 public class LoginTest extends BaseTest{
@@ -16,12 +17,14 @@ public class LoginTest extends BaseTest{
 	}
 	
 	@Test
-	public void loginSuccessful(){
+	public void TC_0050_loginSuccessful(){
 		loginTest.login(validEmail, validPassword);
+		assertFalse("Log-in functionality error", loginTest.isDisplayed(loginTest.invalidPopover));
 	}
 	
 	@Test
-	public void loginUnsuccessful(){
+	public void TC_0060_loginUnsuccessful(){
 		loginTest.login(invalidEmail, invalidPassword);
+		assertFalse("Log-in functionality error", loginTest.isDisplayed(loginTest.invalidPopover));
 	}
 }

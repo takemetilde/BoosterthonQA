@@ -68,9 +68,9 @@ public class BaseObject implements Config{
 	}
 	
 	// Method to explicit wait 
-	public void waitFor(By locator){
+	public void waitFor(By locator, Integer seconds){
 		try {
-			WebDriverWait waitFor = new WebDriverWait(driver, 10);
+			WebDriverWait waitFor = new WebDriverWait(driver, seconds);
 			waitFor.until(ExpectedConditions.presenceOfElementLocated(locator));
 		} catch (TimeoutException exception) {
 		}
