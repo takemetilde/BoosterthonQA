@@ -1,10 +1,9 @@
 package pageobjects;
 
-import static org.junit.Assert.*;
 import org.openqa.selenium.By; 
 import org.openqa.selenium.WebDriver;
 
-public class RegisterStudentObjects extends BaseObject{
+public class RegistrationObjects extends BaseObject{
 
 	By registerButtonLocator = By.linkText("Register a Student");
     By schoolSearchLocator = By.id("query");
@@ -17,28 +16,28 @@ public class RegisterStudentObjects extends BaseObject{
     By acceptButtonLocator = By.id("ButtonAcceptTerms");
     public By duplicateError = By.className("alert");
     
-    public RegisterStudentObjects(WebDriver driver) {
+    public RegistrationObjects(WebDriver driver) {
 		super(driver);
 	}
     
-    public void registerStudent(){
-    	// TC_008.0
+    public void testButtonRegistration(){
     	click(registerButtonLocator);
-    	
-    	// TC_009.0
+    }
+    
+    public void schoolSearchRegistration(){
     	type(schoolSearchLocator, schoolSearch);
     	waitFor(schoolSelectLocator, 8);
     	hover(schoolSelectLocator);
     	click(schoolSelectLocator);
     	waitFor(firstNameLocator, 8);
-    	
-    	// TC_015.0
+    }
+    
+    public void studentRegistration(){
     	type(firstNameLocator, firstNameRegis);
     	type(lastNameLocator, lastNameRegis);
     	select(genderLocator, genderRegis);
     	select(classroomLocator, classroomRegis);
     	click(checkboxLocator);
     	click(acceptButtonLocator);
-    	assertFalse("Form error", isDisplayed(duplicateError));
     }
 }
