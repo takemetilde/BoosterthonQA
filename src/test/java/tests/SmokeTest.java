@@ -21,13 +21,31 @@ public class SmokeTest extends BaseTest{
 	}
 
 	@Test
-	public void TC_0140_registerStudentSuccess(){
+	public void TC_0050_loginSuccessful(){
 		loginTest.login(validEmail, validPassword);
 		assertFalse("Log-in functionality error", loginTest.isDisplayed(loginTest.invalidPopover));
+	}
+	
+	@Test
+	public void TC_0080_registrationButtonSuccessful(){
+		loginTest.login(validEmail, validPassword);
 		registerTest.testButtonRegistration();
 		assertTrue("Registration button works correctly", registerTest.isDisplayed(registerTest.schoolSearchLocator));
+	}
+	
+	@Test
+	public void TC_0090_schoolSearchSuccessful(){
+		loginTest.login(validEmail, validPassword);
+		registerTest.testButtonRegistration();
 		registerTest.schoolSearchRegistration();
 		assertTrue("School search successful", registerTest.isDisplayed(registerTest.firstNameLocator));
+	}
+	
+	@Test
+	public void TC_0140_registerStudentSuccess(){
+		loginTest.login(validEmail, validPassword);
+		registerTest.testButtonRegistration();
+		registerTest.schoolSearchRegistration();
 		registerTest.studentRegistration();
 		assertFalse("Form error", registerTest.isDisplayed(registerTest.duplicateError));
 	}
