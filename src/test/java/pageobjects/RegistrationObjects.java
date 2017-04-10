@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 public class RegistrationObjects extends BaseObject{
 
 	By registerButtonLocator = By.linkText("Register a Student");
-    By schoolSearchLocator = By.id("query");
+    public By schoolSearchLocator = By.id("query");
     By schoolSelectLocator = By.cssSelector("div[registration_code='316649']");
-    By firstNameLocator = By.name("first_name");
+    public By firstNameLocator = By.name("first_name");
     By lastNameLocator = By.name("last_name");
     By genderLocator = By.id("gender");
     By classroomLocator = By.name("classroom_id");
@@ -22,14 +22,15 @@ public class RegistrationObjects extends BaseObject{
     
     public void testButtonRegistration(){
     	click(registerButtonLocator);
+    	waitFor(schoolSearchLocator, -1);
     }
     
     public void schoolSearchRegistration(){
     	type(schoolSearchLocator, schoolSearch);
-    	waitFor(schoolSelectLocator, 8);
+    	waitFor(schoolSelectLocator, -1);
     	hover(schoolSelectLocator);
     	click(schoolSelectLocator);
-    	waitFor(firstNameLocator, 8);
+    	waitFor(firstNameLocator, -1);
     }
     
     public void studentRegistration(){
