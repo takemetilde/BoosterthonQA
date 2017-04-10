@@ -22,15 +22,15 @@ public class RegistrationObjects extends BaseObject{
     
     public void testButtonRegistration(){
     	click(registerButtonLocator);
-    	waitFor(schoolSearchLocator, -1);
+    	waitFor(schoolSearchLocator, 8);
     }
     
     public void schoolSearchRegistration(){
     	type(schoolSearchLocator, schoolSearch);
-    	waitFor(schoolSelectLocator, -1);
+    	waitFor(schoolSelectLocator, 8);
     	hover(schoolSelectLocator);
     	click(schoolSelectLocator);
-    	waitFor(firstNameLocator, -1);
+    	waitFor(firstNameLocator, 8);
     }
     
     public void studentRegistration(){
