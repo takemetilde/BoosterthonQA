@@ -1,6 +1,7 @@
 package pageobjects;
 
-import org.openqa.selenium.By;    
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -62,7 +63,7 @@ public class BaseObject implements Config{
 	public Boolean isDisplayed(By locator) {
 		try {
 			return find(locator).isDisplayed();
-		} catch (org.openqa.selenium.NoSuchElementException exception) {
+		} catch (NoSuchElementException exception) {
 			return false;
 		}
 	}
@@ -72,8 +73,7 @@ public class BaseObject implements Config{
 		try {
 			WebDriverWait waitFor = new WebDriverWait(driver, seconds);
 			waitFor.until(ExpectedConditions.presenceOfElementLocated(locator));
-		} catch (TimeoutException exception) {
-		}
+		} catch (TimeoutException exception) {}
 	}
 
 }
