@@ -3,7 +3,7 @@ package pageobjects;
 import org.openqa.selenium.By; 
 import org.openqa.selenium.WebDriver;
 
-public class RegistrationObjects extends BaseObject{
+public class DashboardObjects extends BaseObject{
 
 	By registerButtonLocator = By.linkText("Register a Student");
     public By schoolSearchLocator = By.id("query");
@@ -16,7 +16,7 @@ public class RegistrationObjects extends BaseObject{
     By acceptButtonLocator = By.id("ButtonAcceptTerms");
     public By duplicateError = By.className("alert");
     
-    public RegistrationObjects(WebDriver driver) {
+    public DashboardObjects(WebDriver driver) {
 		super(driver);
 	}
     

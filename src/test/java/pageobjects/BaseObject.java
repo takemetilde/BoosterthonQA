@@ -47,9 +47,9 @@ public class BaseObject implements Config{
 	}
 	
 	// Method to hover
-	public Actions hover(By locator) {
+	public void hover(By locator) {
 		Actions hover = new Actions(driver);
-		return hover.moveToElement(find(locator));
+		hover.moveToElement(find(locator));
 	}
 	
 	// Method to select from list

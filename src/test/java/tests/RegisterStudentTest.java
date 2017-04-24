@@ -6,16 +6,16 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pageobjects.LoginObjects;
-import pageobjects.RegistrationObjects;
+import pageobjects.DashboardObjects;
 
 public class RegisterStudentTest extends BaseTest {
 
-	private RegistrationObjects registerTest;
+	private DashboardObjects registerTest;
 	private LoginObjects loginTest;
 	
 	@Before
 	public void setUp(){
-		registerTest = new RegistrationObjects(driver);
+		registerTest = new DashboardObjects(driver);
 		loginTest = new LoginObjects(driver);
 	}
 
